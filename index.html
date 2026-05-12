@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>L-System Visualizer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="banner" hidden>⚠ <span id="banner-msg"></span></div>
+  <div id="controls">
+    <div class="ctrl-row">
+      <select id="grammar-select" aria-label="Gramática"></select>
+      <div class="mode-toggle">
+        <button id="btn-grow" class="active">Crecer</button>
+        <button id="btn-turtle">Tortuga</button>
+      </div>
+      <button id="btn-play">▶ Animar</button>
+    </div>
+    <div class="ctrl-row">
+      <label>Iteraciones <input type="number" id="iterations" min="1" max="10" step="1"></label>
+      <label>Largo <input type="number" id="step-length" min="1" max="50" step="1" value="12"> ± <input type="number" id="step-length-delta" min="0" max="50" step="1" value="0"></label>
+      <label>Ángulo δ <input type="number" id="angle" min="1" max="90" step="0.1"> ± <input type="number" id="angle-delta" min="0" max="90" step="0.1" value="0"></label>
+      <label>Semilla <input type="number" id="seed" min="0" step="1" value="42"></label>
+      <label>FPS <input type="range" id="speed" min="1" max="60" value="2"> <output id="speed-out">2</output></label>
+    </div>
+    <div id="custom-row">
+      <textarea id="custom-json" rows="4" spellcheck="false"></textarea>
+    </div>
+  </div>
+  <div id="main">
+    <div id="panel-left"></div>
+    <div id="panel-right">
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+  <script src="scripts/grammars.js"></script>
+  <script src="scripts/rng.js"></script>
+  <script src="scripts/grammar_derivation.js"></script>
+  <script src="scripts/turtle.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
